@@ -76,6 +76,7 @@
     <Compile Include="Glass.cs" />
     <Compile Include="ITapStateful.cs" />
     <Compile Include="Keg.cs" />
+    <Compile Include="KegSize.cs" />
     <Compile Include="LinkRelations.cs" />
     <Compile Include="Office.cs" />
     <Compile Include="PourBeer.cs" />

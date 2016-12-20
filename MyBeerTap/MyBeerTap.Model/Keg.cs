@@ -9,28 +9,8 @@ using IQ.Platform.Framework.WebApi.Model.Hypermedia;
 
 namespace MyBeerTap.Model
 {
-    /// <summary>
-    /// Sizes of Keg
-    /// </summary>
-
-    public enum KegSize
-    {
-        /// <summary>
-        ///Size is SixthBarrel
-        /// </summary>
-        SixthBarrel,
-
-        /// <summary>
-        ///Size is  Quarter Barrel
-        /// </summary>
-        QuarterBarrel,
-
-        /// <summary>
-        ///Size is Half Barrel
-        /// </summary>
-        HalfBarrel
-
-    }
+   
+   
     /// <summary>
     ///   Keg  
     /// </summary>
