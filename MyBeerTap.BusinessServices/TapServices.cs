@@ -80,7 +80,7 @@ namespace MyBeerTap.Services
             if (tapEntity != null)
             {
 
-                Keg officeModel = null;
+             
 
                 using (var scope = new TransactionScope())
                 {
