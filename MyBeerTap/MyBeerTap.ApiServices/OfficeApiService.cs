@@ -11,11 +11,9 @@ using IQ.Platform.Framework.Common;
 using IQ.Platform.Framework.WebApi;
 using IQ.Platform.Framework.WebApi.Services.Security;
 using MyBeerTap.ApiServices.Security;
-using MyBeerTap.Data.Models;
-using MyBeerTap.Data.UnitOfWork;
 using MyBeerTap.Model;
 using MyBeerTap.Services;
-using MyBeerTap.Model.Data;
+
 
 
 namespace MyBeerTap.ApiServices

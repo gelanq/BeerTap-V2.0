@@ -10,7 +10,7 @@ using IQ.Platform.Framework.WebApi;
 using IQ.Platform.Framework.WebApi.Services.Security;
 using MyBeerTap.ApiServices.Security;
 using MyBeerTap.Model;
-using MyBeerTap.Model.Data;
+
 using MyBeerTap.Services;
 
 namespace MyBeerTap.ApiServices

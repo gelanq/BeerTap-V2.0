@@ -183,7 +183,6 @@
     <Compile Include="IOfficeApiService.cs" />
     <Compile Include="IPourBeerApiService.cs" />
     <Compile Include="ITapApiService.cs" />
-    <Compile Include="KegApiService.cs" />
     <Compile Include="KegReplaceApiService.cs" />
     <Compile Include="LinksParametersSource.cs" />
     <Compile Include="OfficeApiService.cs" />

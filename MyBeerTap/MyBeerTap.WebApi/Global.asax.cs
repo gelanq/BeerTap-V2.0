@@ -2,9 +2,6 @@
 using System.Web.Http;
 using MyBeerTap.WebApi.Infrastructure;
 using System.Data.Entity;
-using System.Web.UI;
-using MyBeerTap.Model;
-using MyBeerTap.Model.Data;
 using MyBeerTap.Data;
 
 namespace MyBeerTap.WebApi

@@ -71,8 +71,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BeerBrandName.cs" />
-    <Compile Include="Data\BeerTapDBContext.cs" />
-    <Compile Include="Data\BeeerTapRepository.cs" />
     <Compile Include="Glass.cs" />
     <Compile Include="ITapStateful.cs" />
     <Compile Include="Keg.cs" />
@@ -106,6 +104,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Release\" />
+    <Folder Include="Data\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
