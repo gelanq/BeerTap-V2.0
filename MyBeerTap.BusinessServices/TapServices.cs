@@ -36,7 +36,7 @@ namespace MyBeerTap.Services
             if (tap != null)
             {
 
-                Mapper.CreateMap<TapEntity, Tap>();
+                Mapper.CreateMap<TapEntity, Tap>().ConvertUsing<TapEntityToTapConverter>();  
                 var tapModel = Mapper.Map<TapEntity, Tap>(tap);
                 return tapModel;
             }
@@ -115,9 +115,34 @@ namespace MyBeerTap.Services
 
         }
 
-      
-      
- 
-       
+        public Tap GetBeer(int tapId, Glass glass)
+        {
+            //Get Keg by TapId
+            KegEntity kegEntity = _unitOfWork.KegRepository.GetFirst(k => k.TapId == tapId);
+            if (kegEntity.Remaining < glass.AmountToPour)
+                throw new Exception("Not enough beer in this Tap!!!!!");
+
+
+            if (kegEntity != null)
+            { 
+                using (var scope = new TransactionScope())
+                {
+
+                    kegEntity.Remaining -= glass.AmountToPour;
+                    _unitOfWork.KegRepository.Update(kegEntity);
+
+
+                    Mapper.CreateMap<Glass, GlassEntity>();
+                    var glassModel = Mapper.Map<Glass, GlassEntity>(glass);
+                    _unitOfWork.GlassRepository.Insert(glassModel);
+                     _unitOfWork.Save();
+                    scope.Complete();
+
+
+                }
+            }
+            var tap = _unitOfWork.TapRepository.GetByID(tapId);
+            return GetTapById(tapId);
+        }
     }
 }

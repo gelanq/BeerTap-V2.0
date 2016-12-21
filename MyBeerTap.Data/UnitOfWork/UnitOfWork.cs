@@ -18,6 +18,7 @@ namespace MyBeerTap.Data.UnitOfWork
         private GenericRepository<OfficeEntity> _officeRepository;
         private GenericRepository<TapEntity> _tapRepository;
         private GenericRepository<KegEntity> _kegRepository;
+        private GenericRepository<GlassEntity> _glassRepository;
         #endregion
 
         public UnitOfWork()
@@ -65,7 +66,21 @@ namespace MyBeerTap.Data.UnitOfWork
                 return _kegRepository;
             }
         }
+
+        /// <summary>
+        /// Get/Set Property for Glass repository.
+        /// </summary>
+        public GenericRepository<GlassEntity> GlassRepository
+        {
+            get
+            {
+                if (this._glassRepository == null)
+                    this._glassRepository = new GenericRepository<GlassEntity>(_context);
+                return _glassRepository;
+            }
+        }
         #endregion
+
 
         #region Public member methods...
         /// <summary>

@@ -38,16 +38,16 @@ namespace MyBeerTap.ApiServices
             var tapId = context.UriParameters.GetByName<int>("TapId").EnsureValue(() => context.CreateHttpResponseException<Tap>("The TapId must be supplied in the URI", HttpStatusCode.BadRequest));
           
             Tap tap = _tapService.ReplaceKeg(tapId, resource.Keg);
-              
+            resource.Tap = tap;
             return Task.FromResult(new ResourceCreationResult<ReplaceKeg, int>(resource));
 
         }
 
         public Task<ReplaceKeg> UpdateAsync(ReplaceKeg resource, IRequestContext context, CancellationToken cancellation)
         {
-            
 
-            return Task.FromResult( resource);
+
+            throw new NotImplementedException();
         }
 
       

@@ -21,11 +21,7 @@ namespace MyBeerTap.Model
         /// </summary> 
         public int TapId { get; set; }
 
-        /// <summary>
-        /// Identity of the Glass
-        /// </summary> 
-        
-        public int Id { get; set; }
+     
 
         /// <summary>
         /// Amount of Beer to pour in ml

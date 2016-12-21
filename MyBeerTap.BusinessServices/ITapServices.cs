@@ -17,5 +17,6 @@ namespace MyBeerTap.Services
 
 
         Tap ReplaceKeg(int tapId, Keg keg);
+        Tap GetBeer(int tapId, Glass glass);
     }
 }

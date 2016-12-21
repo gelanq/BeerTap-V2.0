@@ -8,47 +8,38 @@ using IQ.Platform.Framework.WebApi.Services.Security;
 using MyBeerTap.ApiServices.Security;
 using MyBeerTap.Model;
 using MyBeerTap.Model.Data;
+using MyBeerTap.Services;
 
 namespace MyBeerTap.ApiServices
 {
     public class PourBeerApiService: IPourBeerApiService
     {
         readonly IApiUserProvider<MyBeerTapApiUser> _userProvider;
-        private BeeerTapRepository _repository;
-         
+        private readonly ITapServices _tapService;
+
 
         public PourBeerApiService(IApiUserProvider<MyBeerTapApiUser> userProvider)
         {
             if (userProvider == null)
                 throw new ArgumentNullException("userProvider");
             _userProvider = userProvider;
+            _tapService = new TapServices();
 
         }
         public Task<ResourceCreationResult<PourBeer, int>> CreateAsync(PourBeer resource, IRequestContext context, CancellationToken cancellation)
         {
-            _repository = new BeeerTapRepository();
+        
 
             var tapId = context.UriParameters.GetByName<int>("TapId").EnsureValue(() => context.CreateHttpResponseException<Tap>("The TapId must be supplied in the URI", HttpStatusCode.BadRequest));
-
-            Keg k = _repository.GetKegByTapId(tapId);
-            if (k.Remaining < resource.Glass.AmountToPour)
-                throw new Exception("Not enough beer in this Tap!!!!!");
-
-            //Add new Glass
+            var officeId = context.UriParameters.GetByName<int>("OfficeId").EnsureValue(() => context.CreateHttpResponseException<Office>("The Office must be supplied in the URI", HttpStatusCode.BadRequest));
             resource.Id = tapId;
             resource.Glass.TapId = tapId;
-            Glass g = _repository.AddGlass(resource.Glass);
+            resource.OfficeId = officeId;
 
-            //Update the Keg
-            _repository.UpdateKegByGlass(g);
-
-
-            //Get the Tap for reference
-            Tap t = _repository.GetTapById(tapId);
-            resource.Tap = t;
-
-
-            return Task.FromResult(new ResourceCreationResult<PourBeer, int>(resource));
+           Tap tap = _tapService.GetBeer(tapId, resource.Glass);
+           resource.Tap = tap;
+            
+           return Task.FromResult(new ResourceCreationResult<PourBeer, int>(resource));
         }
 
     }
