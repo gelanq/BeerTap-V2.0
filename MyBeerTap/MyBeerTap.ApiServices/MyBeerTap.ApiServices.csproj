@@ -178,7 +178,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IDomainServiceResolver.cs" />
-    <Compile Include="IKegApiService.cs" />
     <Compile Include="IKegReplaceApiService.cs" />
     <Compile Include="IOfficeApiService.cs" />
     <Compile Include="IPourBeerApiService.cs" />
