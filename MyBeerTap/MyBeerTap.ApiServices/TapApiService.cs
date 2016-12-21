@@ -53,9 +53,7 @@ namespace MyBeerTap.ApiServices
 
         public Task<Tap> UpdateAsync(Tap resource, IRequestContext context, CancellationToken cancellation)
         {
-        //_repository = new BeeerTapRepository();
-
-        //return   Task.FromResult(_repository.UpdateTap( resource));
+        
 
         throw new NotImplementedException();
     }
@@ -63,33 +61,14 @@ namespace MyBeerTap.ApiServices
 
         public Task<ResourceCreationResult<Tap, int>> CreateAsync(Tap resource, IRequestContext context, CancellationToken cancellation)
         {
-        //  _repository = new BeeerTapRepository();
-
-        //  Keg keg = resource.Keg;
-        ////  resource.Keg = null;
-
-        //  Tap tap = resource;
-        //  tap = _repository.AddTap(resource);
-
-        //  if (keg != null)
-        //  {
-        //      keg.TapId  = tap.Id;
-        //      _repository.ReplaceKeg(resource.Keg);
-        //  }
-
-
-        //  return Task.FromResult(new ResourceCreationResult<Tap, int>(resource));
+       
         throw new NotImplementedException();
     }
 
       
         public Task DeleteAsync(ResourceOrIdentifier<Tap, int> input, IRequestContext context, CancellationToken cancellation)
         {
-            // _repository = new BeeerTapRepository();
-            // var tapId = context.UriParameters.GetByName<int>("Id").EnsureValue(() => context.CreateHttpResponseException<Tap>("The TapId must be supplied in the URI", HttpStatusCode.BadRequest));
-            //_repository.UpdateKeg(tapId);
-            //_repository.RemoveTap(tapId);
-            // return Task.FromResult<Tap>(null);
+      
             throw new NotImplementedException();
         }
 
