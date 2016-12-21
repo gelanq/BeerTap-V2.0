@@ -47,7 +47,7 @@ namespace MyBeerTap.ApiServices
             var taps = _tapService.GetAllTapsByOfficeId(officeId);
             return Task.FromResult(taps);
 
-            throw new NotImplementedException();
+       
     }
 
 
